@@ -1,0 +1,32 @@
+name: Schema contract
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Validate current contract
+        run: python scripts/check_contract.py
+      - name: Test contract checker
+        run: python -m unittest discover -s tests -p "test_*.py"
+      - name: Validate release changes against base
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        shell: bash
+        run: |
+          if [ -n "$BASE_SHA" ] && [ "$BASE_SHA" != "0000000000000000000000000000000000000000" ]; then
+            if git cat-file -e "$BASE_SHA:schema-version.json" 2>/dev/null; then
+              python scripts/check_contract.py --base-ref "$BASE_SHA"
+            fi
+          fi

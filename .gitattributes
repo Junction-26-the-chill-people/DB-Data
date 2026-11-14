@@ -1,0 +1,6 @@
+# Preserve the exact bytes/checksum of released migrations on all platforms.
+supabase/migrations/*.sql -text
+*.md text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.yml text eol=lf

@@ -1,0 +1,11 @@
+{
+  "project_ref": "huvxbsfwyjddbnbpjroh",
+  "schema_version": "1.0.0",
+  "latest_migration": "20261114000100",
+  "verified_on": "2026-11-14",
+  "application_method": "Manual SQL transaction through a TLS-verified Session pooler; not registered in Supabase CLI migration history",
+  "migration_sha256": "1aaa8abbaa344d1c6c0b1b6fab18fbf4d451923614f9efd5212dd5d251405136",
+  "verification": "tests/verify_access.sql passed on the live project; test transaction rolled back",
+  "evidence": "docs/deployment-status.md",
+  "notice": "Historical snapshot, not a live version endpoint or guarantee against manual drift"
+}

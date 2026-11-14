@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-11-14",
+  "latest_migration": "20261114000100",
+  "migrations": [
+    {
+      "id": "20261114000100",
+      "path": "supabase/migrations/20261114000100_wellbeing_schema.sql",
+      "sha256": "1aaa8abbaa344d1c6c0b1b6fab18fbf4d451923614f9efd5212dd5d251405136"
+    }
+  ]
+}
